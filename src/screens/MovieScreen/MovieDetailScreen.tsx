@@ -5,6 +5,8 @@ import { useTheme } from 'react-native-paper';
 
 import { mockData } from '../../../data/mockData';
 import MovieDetailHeader from '@components/MovieDetailHeader';
+import MoviePlot from '@components/MoviePlot';
+import MovieDetailScreenings from '@components/MovieDetailScreenings';
 
 const useStyle = (theme: ATheme) => StyleSheet.create({});
 
@@ -31,7 +33,7 @@ const MovieDetailScreen = ({ route, navigation }) => {
   const { Title, Released, Genre, Director, Actors, Plot, Poster } = movieData;
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+    <View style={{ flex: 1, backgroundColor: '#fff', justifyContent: 'flex-start' }}>
       <MovieDetailHeader
         title={Title}
         image={Poster}
@@ -41,10 +43,12 @@ const MovieDetailScreen = ({ route, navigation }) => {
         genre={Genre}
         releasedDate={Released}
       />
+
+      <MoviePlot text={Plot} />
+
+      <MovieDetailScreenings />
     </View>
   );
 };
 
 export default MovieDetailScreen;
-
-const styles = StyleSheet.create({});

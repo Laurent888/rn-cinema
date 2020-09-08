@@ -7,6 +7,7 @@ import './rn-addons';
 configure(() => {
   require('./stories/ImageCard.stories.tsx');
   require('./stories/FeatureBadge.stories.tsx');
+  require('./stories/TextAccordeon.stories.tsx');
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters

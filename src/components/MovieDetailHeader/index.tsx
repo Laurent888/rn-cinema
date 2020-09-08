@@ -22,8 +22,9 @@ const useStyle = (theme: ATheme) => {
     header: {
       flexDirection: 'row',
       width: '100%',
-      height: 300,
-      paddingHorizontal: 10,
+      height: 230,
+      paddingHorizontal: 15,
+      paddingTop: 25,
     },
     imageContainer: {
       width: WIDTH_POSTER,

@@ -11,9 +11,9 @@ const s = StyleSheet.create({
   },
 });
 
-const Text = ({ text, ...props }: TextCustomProps): React.ReactElement => {
+const Text = ({ text, style, ...props }: TextCustomProps): React.ReactElement => {
   return (
-    <RawText style={[s.default]} {...props}>
+    <RawText style={[s.default, style]} {...props}>
       {text}
     </RawText>
   );

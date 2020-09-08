@@ -9,6 +9,8 @@ import BookningNavigator from './BottomTab/BookningNavigator';
 import { SCREENS } from './routeTypes';
 import MoviesTopBarNavigator from './BottomTab/MovieNavigator/MoviesTopBarNavigator';
 
+import StorybookUIRoot from '../../storybook/index';
+
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomTabNavigator = () => {
@@ -40,6 +42,7 @@ const BottomTabNavigator = () => {
       <Tab.Screen name={SCREENS.CINEMA} component={CinameNavigator} />
       <Tab.Screen name={SCREENS.NOW} component={NowNavigator} />
       <Tab.Screen name={SCREENS.BOOKING} component={BookningNavigator} />
+      <Tab.Screen name="Storybook" component={StorybookUIRoot} />
     </Tab.Navigator>
   );
 };

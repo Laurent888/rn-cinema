@@ -1,4 +1,9 @@
+/* eslint-disable */
+
+import { Dimensions } from 'react-native';
 import { DefaultTheme, configureFonts } from 'react-native-paper';
+
+const { width: WIDTH } = Dimensions.get('screen');
 
 declare global {
   namespace ReactNativePaper {
@@ -11,9 +16,15 @@ declare global {
       };
     }
 
-    interface Theme {}
+    interface Theme {
+      dimensions: {
+        width: number;
+      };
+    }
   }
 }
+
+export interface ATheme extends ReactNativePaper.Theme {}
 
 const fontConfig = {
   default: {
@@ -45,6 +56,9 @@ const getTheme = (theme) => ({
   colors: {
     ...theme.colors,
     primary: '#3c27aa',
+  },
+  dimensions: {
+    width: WIDTH,
   },
   fonts: configureFonts(fontConfig),
 });

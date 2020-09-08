@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 import { ATheme } from '@lib/theme/theme';
 import { useTheme } from 'react-native-paper';
 
@@ -33,21 +33,23 @@ const MovieDetailScreen = ({ route, navigation }) => {
   const { Title, Released, Genre, Director, Actors, Plot, Poster } = movieData;
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff', justifyContent: 'flex-start' }}>
-      <MovieDetailHeader
-        title={Title}
-        image={Poster}
-        actors={Actors}
-        director={Director}
-        plot={Plot}
-        genre={Genre}
-        releasedDate={Released}
-      />
+    <ScrollView>
+      <View style={{ flex: 1, backgroundColor: '#fff', justifyContent: 'flex-start' }}>
+        <MovieDetailHeader
+          title={Title}
+          image={Poster}
+          actors={Actors}
+          director={Director}
+          plot={Plot}
+          genre={Genre}
+          releasedDate={Released}
+        />
 
-      <MoviePlot text={Plot} />
+        <MoviePlot text={Plot} />
 
-      <MovieDetailScreenings />
-    </View>
+        <MovieDetailScreenings />
+      </View>
+    </ScrollView>
   );
 };
 

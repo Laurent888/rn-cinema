@@ -39,6 +39,9 @@ const useStyle = (theme: ATheme) => {
       paddingHorizontal: 15,
       paddingTop: 15,
     },
+    textSize: {
+      fontSize: 16,
+    },
     genre: {
       paddingBottom: 10,
     },
@@ -65,10 +68,10 @@ const MovieDetailHeader = ({
         <Image source={{ uri: image }} style={[s.image]} resizeMode="cover" />
       </View>
       <View style={[s.detailsContainer]}>
-        <Text text={`Released: ${releasedDate}`} />
-        <Text style={[s.genre]} text={genre} />
-        <Text text={`Director: ${director}`} />
-        <Text style={[s.cast]} text={`Stars: ${actors}`} />
+        <Text style={[s.textSize]} text={`Released: ${releasedDate}`} />
+        <Text style={[s.genre, s.textSize]} text={genre} />
+        <Text style={[s.textSize]} text={`Director: ${director}`} />
+        <Text style={[s.cast, s.textSize]} text={`Stars: ${actors}`} />
       </View>
     </View>
   );

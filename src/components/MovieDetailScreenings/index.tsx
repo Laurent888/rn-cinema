@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import dayjs from 'dayjs';
+import { mockTheaters } from '../../../data/mockData';
 
 import ScrollDates from './ScrollDates';
+import ListTheatres from './ListTheatres';
 
 const getNextDates = (numberOfDay = 1) => {
   const currentDate = new Date();
@@ -16,16 +18,17 @@ const getNextDates = (numberOfDay = 1) => {
   return arr;
 };
 
+/********* MAIN COMPONENT  ********/
 const MovieDetailScreenings = () => {
   const datesList = getNextDates(8);
 
   return (
     <View>
       <ScrollDates dates={datesList} />
+
+      <ListTheatres data={mockTheaters} />
     </View>
   );
 };
 
 export default MovieDetailScreenings;
-
-const styles = StyleSheet.create({});

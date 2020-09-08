@@ -33,7 +33,7 @@ const ScrollDates = ({ dates }: ScrollDatesProps) => {
   const s = useStyle(useTheme());
 
   return (
-    <ScrollView horizontal bounces={false}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={false}>
       {dates.map((date) => (
         <DateBox key={date} text={date} style={s} />
       ))}

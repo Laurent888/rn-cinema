@@ -486,3 +486,34 @@ export const mockData = [
     Response: 'True',
   },
 ];
+
+export const mockTheaters = [
+  {
+    name: 'Filmstaden Sergel',
+    city: 'Stockholm',
+  },
+  {
+    name: 'Filmstaden Söder',
+    city: 'Stockholm',
+  },
+  {
+    name: 'Grand Stockholm',
+    city: 'Stockholm',
+  },
+  {
+    name: 'Rigoletto',
+    city: 'Stockholm',
+  },
+  {
+    name: 'Biopalatset',
+    city: 'Göteborg',
+  },
+  {
+    name: 'Filmstaden Bergakungen',
+    city: 'Göteborg',
+  },
+  {
+    name: 'Göta i Göteborg',
+    city: 'Göteborg',
+  },
+];

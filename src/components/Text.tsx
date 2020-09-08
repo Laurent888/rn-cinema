@@ -8,7 +8,7 @@ interface TextCustomProps extends TextProps {
 const s = StyleSheet.create({
   default: {
     fontFamily: 'Roboto-regular',
-    fontSize: 16,
+    fontSize: 18,
   },
 });
 

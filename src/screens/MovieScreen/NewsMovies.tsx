@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const NewScreen = () => {
   return (
     <View>
-      <Text>New Screen</Text>
+      <Text style={{ fontSize: 20 }}>New Screen</Text>
     </View>
   );
 };

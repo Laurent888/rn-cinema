@@ -1,4 +1,3 @@
-const { NativeModules } = require('react-native');
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {

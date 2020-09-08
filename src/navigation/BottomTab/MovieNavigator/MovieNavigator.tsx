@@ -2,14 +2,17 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import NewsMovies from '@screens/MovieScreen/NewsMovies';
+import MoviesTopBarNavigator from './MoviesTopBarNavigator';
+import MovieDetailScreen from '@screens/MovieScreen/MovieDetailScreen';
+import { SCREENS } from '@navigation/routeTypes';
 
 const Stack = createStackNavigator();
 
 const MovieNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="newMovies" component={NewsMovies} />
+      <Stack.Screen name="moviesList" component={MoviesTopBarNavigator} />
+      <Stack.Screen name={SCREENS.MOVIE_DETAIL} component={MovieDetailScreen} />
     </Stack.Navigator>
   );
 };

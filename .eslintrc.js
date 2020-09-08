@@ -23,5 +23,7 @@ module.exports = {
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    // We use typescript
+    'react/prop-types': 'off',
   },
 };

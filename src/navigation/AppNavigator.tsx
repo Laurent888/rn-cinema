@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
         <Stack.Screen name={SCREENS.ROOT} component={BottomTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>

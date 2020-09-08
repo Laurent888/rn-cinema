@@ -7,7 +7,9 @@ const { width: WIDTH } = Dimensions.get('screen');
 
 declare global {
   namespace ReactNativePaper {
-    interface ThemeColors {}
+    interface ThemeColors {
+      mediumGrey: string;
+    }
 
     interface ThemeFonts {
       bold: {
@@ -56,6 +58,7 @@ const getTheme = (theme) => ({
   colors: {
     ...theme.colors,
     primary: '#3c27aa',
+    mediumGrey: '#999',
   },
   dimensions: {
     width: WIDTH,

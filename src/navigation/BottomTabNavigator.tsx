@@ -10,6 +10,7 @@ import { SCREENS } from './routeTypes';
 import MoviesTopBarNavigator from './BottomTab/MovieNavigator/MoviesTopBarNavigator';
 
 import StorybookUIRoot from '../../storybook/index';
+import MovieNavigator from './BottomTab/MovieNavigator/MovieNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -38,7 +39,7 @@ const BottomTabNavigator = () => {
       inactiveColor="#ccc"
       activeColor="#3c27aa"
     >
-      <Tab.Screen name={SCREENS.MOVIE} component={MoviesTopBarNavigator} />
+      <Tab.Screen name={SCREENS.MOVIE} component={MovieNavigator} />
       <Tab.Screen name={SCREENS.CINEMA} component={CinameNavigator} />
       <Tab.Screen name={SCREENS.NOW} component={NowNavigator} />
       <Tab.Screen name={SCREENS.BOOKING} component={BookningNavigator} />

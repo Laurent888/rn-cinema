@@ -1,6 +1,7 @@
 export enum SCREENS {
   ROOT = 'Root',
   MOVIE = 'Movie',
+  MOVIE_DETAIL = 'movieDetail',
   NEW = 'New',
   NOW_PLAYING = 'Now Playing',
   PREMIERE = 'Premiere',

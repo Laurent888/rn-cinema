@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import ListMovies from '@components/ListMovies';
+
+import { mockData } from '../../../data/mockData';
 
 const NewScreen = () => {
+  const newMoviesList = mockData.filter((item) => item.feature === 'New');
+
   return (
-    <View>
-      <Text style={{ fontSize: 20 }}>New Screen</Text>
+    <View style={{ flex: 1 }}>
+      <ListMovies data={newMoviesList} />
     </View>
   );
 };

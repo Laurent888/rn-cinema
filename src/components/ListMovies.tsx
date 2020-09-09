@@ -27,5 +27,3 @@ const ListMovies = ({ data }) => {
 };
 
 export default ListMovies;
-
-const styles = StyleSheet.create({});

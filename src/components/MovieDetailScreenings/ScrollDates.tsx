@@ -23,13 +23,18 @@ const useStyle = (theme: ATheme) => {
   });
 };
 
-const DateBox = ({ text, style }) => (
+interface DateBoxProps {
+  text: string;
+  style: any;
+}
+
+const DateBox = ({ text, style }: DateBoxProps) => (
   <View style={style.dateBox}>
     <Text text={text} style={style.text} />
   </View>
 );
 
-const ScrollDates = ({ dates }: ScrollDatesProps) => {
+const ScrollDates = ({ dates }: ScrollDatesProps): JSX.Element => {
   const s = useStyle(useTheme());
 
   return (
@@ -42,5 +47,3 @@ const ScrollDates = ({ dates }: ScrollDatesProps) => {
 };
 
 export default ScrollDates;
-
-const styles = StyleSheet.create({});

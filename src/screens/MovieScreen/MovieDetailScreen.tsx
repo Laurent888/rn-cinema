@@ -47,7 +47,7 @@ const MovieDetailScreen = ({ route, navigation }) => {
 
         <MoviePlot text={Plot} />
 
-        <MovieDetailScreenings />
+        <MovieDetailScreenings movieData={movieData} />
       </View>
     </ScrollView>
   );

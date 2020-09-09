@@ -1,52 +1,51 @@
-import React, { useState, useRef, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { Entypo } from '@expo/vector-icons';
 
 import Text from '@components/Text';
 
-import { TheaterProps } from '@lib/types/types';
-import { getUniqueCities } from '@lib/utils/dataTransformation';
+import { MovieProps } from '@lib/types/types';
 import { useStyle } from './styles';
 import TheatreItem from './TheatreItem';
+import { mockTheaters } from '../../../data/mockData';
 
 interface ListTheatresProps {
-  data: TheaterProps[];
+  movieData: MovieProps;
+}
+
+interface CityItemProps {
+  city: string;
+  style: any;
+  onPress: (city: string) => void;
 }
 
 /******* COMPONENTS ********/
 
-const CityItem = React.memo(({ city, style, onPress }) => (
+const CityItem = React.memo(({ city, style, onPress }: CityItemProps) => (
   <TouchableOpacity activeOpacity={0.8} style={style.cityRow} onPress={() => onPress(city)}>
     <Text text={city} style={{ textTransform: 'uppercase' }} />
     <Entypo name="chevron-thin-down" size={25} />
   </TouchableOpacity>
 ));
 
-const ListByCities = ({ data, style, selectedCity, onPress }): JSX.Element => {
-  const uniqueCities = getUniqueCities(data);
-
-  return (
-    <View>
-      {uniqueCities.map((city) => {
-        const theatres = data.filter((item) => item.city === city);
-
-        return (
-          <Fragment key={city}>
-            <CityItem city={city} style={style} onPress={onPress} />
-            {selectedCity === city &&
-              theatres.map((bTtem) => <TheatreItem key={bTtem.name} name={bTtem.name} />)}
-          </Fragment>
-        );
-      })}
-    </View>
-  );
-};
-
 /***** MAIN COMPONENT ******/
-const ListTheatres: React.FC<ListTheatresProps> = ({ data }: ListTheatresProps) => {
+const ListTheatres: React.FC<ListTheatresProps> = ({ movieData }: ListTheatresProps) => {
   const [selectedCity, setSelectedCity] = useState('');
   const s = useStyle(useTheme());
+
+  const movieDataWithCity = movieData.screenings.map((item) => {
+    const theatreObject = mockTheaters.find((theater) => theater.name === item.theatre);
+
+    return {
+      ...item,
+      details: theatreObject,
+    };
+  });
+
+  const citiesUnique = [
+    ...Array.from(new Set(movieDataWithCity.map((item) => item.details.city))),
+  ].sort((a, b) => a - b);
 
   const selectCity = (city: string) => {
     if (city === selectedCity) {
@@ -58,7 +57,18 @@ const ListTheatres: React.FC<ListTheatresProps> = ({ data }: ListTheatresProps) 
 
   return (
     <View>
-      <ListByCities data={data} style={s} selectedCity={selectedCity} onPress={selectCity} />
+      {citiesUnique.map((city) => (
+        <Fragment key={city}>
+          <CityItem city={city} onPress={selectCity} style={s} />
+          <View style={{ display: selectedCity === city ? 'flex' : 'none' }}>
+            {movieDataWithCity
+              .filter((item) => item.details?.city === city)
+              .map((t) => (
+                <TheatreItem key={t.theatre} name={t.theatre} times={t.times} style={s} />
+              ))}
+          </View>
+        </Fragment>
+      ))}
     </View>
   );
 };

@@ -1,10 +1,14 @@
 import React from 'react';
 import { View } from 'react-native';
 import dayjs from 'dayjs';
-import { mockTheaters } from '../../../data/mockData';
 
 import ScrollDates from './ScrollDates';
 import ListTheatres from './ListTheatres';
+import { MovieProps } from '@lib/types/types';
+
+interface MovieDetailScreeningsProps {
+  movieData: MovieProps;
+}
 
 const getNextDates = (numberOfDay = 1) => {
   const currentDate = new Date();
@@ -19,14 +23,14 @@ const getNextDates = (numberOfDay = 1) => {
 };
 
 /********* MAIN COMPONENT  ********/
-const MovieDetailScreenings = () => {
+const MovieDetailScreenings = ({ movieData }: MovieDetailScreeningsProps): JSX.Element => {
   const datesList = getNextDates(8);
 
   return (
     <View>
       <ScrollDates dates={datesList} />
 
-      <ListTheatres data={mockTheaters} />
+      <ListTheatres movieData={movieData} />
     </View>
   );
 };

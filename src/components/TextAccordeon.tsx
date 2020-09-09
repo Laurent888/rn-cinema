@@ -26,7 +26,7 @@ const useStyle = (theme: ATheme) =>
     },
   });
 
-const TextAccordeon = ({ text, ...props }: CustomTextProps) => {
+const TextAccordeon = ({ text, ...props }: CustomTextProps): JSX.Element => {
   const s = useStyle(useTheme());
 
   const [isOpen, setIsOpen] = useState(false);

@@ -37,6 +37,7 @@ export const mockData = [
       },
       { theatre: 'Filmstaden Bergakungen', times: ['1200', '1330', '1500'] },
     ],
+    feature: '',
   },
   {
     Title: 'Greenland',
@@ -69,6 +70,7 @@ export const mockData = [
         times: ['1200', '1330', '1500', '1530'],
       },
     ],
+    feature: '',
   },
   {
     Title: 'The New Mutants',
@@ -106,6 +108,7 @@ export const mockData = [
       { theatre: 'Filmstaden Entré', times: ['1200', '1300', '1330'] },
       { theatre: 'Rigoletto', times: ['1200', '1300', '1330', '1500'] },
     ],
+    feature: '',
   },
   {
     Title: 'Unhinged',
@@ -143,6 +146,7 @@ export const mockData = [
         times: ['1100', '1300', '1400', '1530'],
       },
     ],
+    feature: 'New',
   },
   {
     Title: 'Onward',
@@ -192,6 +196,7 @@ export const mockData = [
         times: ['1200', '1330', '1400', '1500', '1530'],
       },
     ],
+    feature: '',
   },
   {
     Title: 'Bloodshot',
@@ -220,6 +225,7 @@ export const mockData = [
     Type: 'movie',
     Production: 'N/A',
     screenings: [{ theatre: 'Royal Malmö', times: ['1300', '1330', '1400', '1500'] }],
+    feature: '',
   },
   {
     Title: 'The Call of the Wild',
@@ -266,6 +272,7 @@ export const mockData = [
       },
       { theatre: 'Filmstaden Storgatan', times: ['1200', '1300'] },
     ],
+    feature: '',
   },
   {
     Title: 'Jumanji: The Next Level',
@@ -307,6 +314,7 @@ export const mockData = [
       { theatre: 'Filmstaden Storgatan', times: ['1100', '1200', '1530'] },
       { theatre: 'Filmstaden Bergakungen', times: ['1200', '1300', '1400'] },
     ],
+    feature: 'New',
   },
   {
     Title: 'The Invisible Man',
@@ -344,6 +352,7 @@ export const mockData = [
       },
       { theatre: 'Biopalatset', times: ['1200', '1530'] },
     ],
+    feature: '',
   },
   {
     Title: 'The Broken Hearts Gallery',
@@ -391,6 +400,7 @@ export const mockData = [
       { theatre: 'Grand Stockholm', times: ['1330', '1400', '1500'] },
       { theatre: 'Royal Malmö', times: ['1200', '1500'] },
     ],
+    feature: 'New',
   },
   {
     Title: 'Jimmy Carter: Rock & Roll President',
@@ -426,6 +436,7 @@ export const mockData = [
         times: ['1100', '1200', '1330', '1400', '1500'],
       },
     ],
+    feature: '',
   },
   {
     Title: 'Avengers: Endgame',
@@ -460,6 +471,7 @@ export const mockData = [
       { theatre: 'Filmstaden Sergel', times: ['1100', '1200'] },
       { theatre: 'Grand Stockholm', times: ['1100', '1500'] },
     ],
+    feature: 'New',
   },
   {
     Title: 'The Lion King',
@@ -501,6 +513,7 @@ export const mockData = [
         times: ['1100', '1300', '1330', '1530'],
       },
     ],
+    feature: '',
   },
   {
     Title: 'Captain Marvel',
@@ -540,6 +553,7 @@ export const mockData = [
         times: ['1100', '1300', '1330', '1400', '1530'],
       },
     ],
+    feature: '',
   },
   {
     Title: 'Joker',
@@ -586,6 +600,7 @@ export const mockData = [
       },
       { theatre: 'Rigoletto', times: ['1100', '1400', '1500'] },
     ],
+    feature: 'New',
   },
 ];
 

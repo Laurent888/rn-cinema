@@ -2,24 +2,19 @@ import React, { useState, useRef, Fragment } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { Entypo } from '@expo/vector-icons';
-import { Transition, Transitioning } from 'react-native-reanimated';
 
 import Text from '@components/Text';
 
 import { TheaterProps } from '@lib/types/types';
 import { getUniqueCities } from '@lib/utils/dataTransformation';
 import { useStyle } from './styles';
+import TheatreItem from './TheatreItem';
 
 interface ListTheatresProps {
   data: TheaterProps[];
 }
 
 /******* COMPONENTS ********/
-const TheatreItem = React.memo(({ name }) => (
-  <View style={{ width: '100%', paddingVertical: 20, paddingHorizontal: 15 }}>
-    <Text text={name} />
-  </View>
-));
 
 const CityItem = React.memo(({ city, style, onPress }) => (
   <TouchableOpacity activeOpacity={0.8} style={style.cityRow} onPress={() => onPress(city)}>

@@ -26,12 +26,17 @@ export const mockData = [
     imdbVotes: '63,755',
     imdbID: 'tt6723592',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'Warner Bros. Pictures',
-    Website: 'N/A',
-    Response: 'True',
-    feature: 'New',
+    screenings: [
+      { theatre: 'Royal Malmö', times: ['1200', '1500', '1530'] },
+      { theatre: 'Biopalatset', times: ['1330', '1400', '1500', '1530'] },
+      { theatre: 'Filmstaden Sergel', times: ['1300', '1400'] },
+      {
+        theatre: 'Grand Stockholm',
+        times: ['1200', '1330', '1400', '1500'],
+      },
+      { theatre: 'Filmstaden Bergakungen', times: ['1200', '1330', '1500'] },
+    ],
   },
   {
     Title: 'Greenland',
@@ -55,12 +60,15 @@ export const mockData = [
     imdbVotes: '1,613',
     imdbID: 'tt7737786',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'N/A',
-    Website: 'N/A',
-    Response: 'True',
-    feature: 'New',
+    screenings: [
+      { theatre: 'Filmstaden Storgatan', times: ['1100', '1200', '1300'] },
+      { theatre: 'Rigoletto', times: ['1100', '1400', '1500', '1530'] },
+      {
+        theatre: 'Grand Stockholm',
+        times: ['1200', '1330', '1500', '1530'],
+      },
+    ],
   },
   {
     Title: 'The New Mutants',
@@ -88,11 +96,16 @@ export const mockData = [
     imdbVotes: '2,889',
     imdbID: 'tt4682266',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: '20th Century Fox',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      { theatre: 'Biopalatset', times: ['1200', '1300', '1400', '1530'] },
+      {
+        theatre: 'Filmstaden Söder',
+        times: ['1100', '1200', '1330', '1400', '1500'],
+      },
+      { theatre: 'Filmstaden Entré', times: ['1200', '1300', '1330'] },
+      { theatre: 'Rigoletto', times: ['1200', '1300', '1330', '1500'] },
+    ],
   },
   {
     Title: 'Unhinged',
@@ -120,12 +133,16 @@ export const mockData = [
     imdbVotes: '4,639',
     imdbID: 'tt10059518',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'N/A',
-    Website: 'N/A',
-    Response: 'True',
-    feature: 'New',
+    screenings: [
+      { theatre: 'Royal Malmö', times: ['1100', '1200'] },
+      { theatre: 'Rigoletto', times: ['1300', '1330'] },
+      { theatre: 'Filmstaden Sergel', times: ['1100', '1330', '1530'] },
+      {
+        theatre: 'Filmstaden Storgatan',
+        times: ['1100', '1300', '1400', '1530'],
+      },
+    ],
   },
   {
     Title: 'Onward',
@@ -154,11 +171,27 @@ export const mockData = [
     imdbVotes: '76,691',
     imdbID: 'tt7146812',
     Type: 'movie',
-    DVD: '20 Mar 2020',
-    BoxOffice: 'N/A',
     Production: 'Disney/Pixar',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      { theatre: 'Filmstaden Storgatan', times: ['1100', '1300', '1500'] },
+      {
+        theatre: 'Göta i Göteborg',
+        times: ['1100', '1200', '1400', '1500', '1530'],
+      },
+      {
+        theatre: 'Filmstaden Söder',
+        times: ['1100', '1300', '1330', '1400'],
+      },
+      { theatre: 'Royal Malmö', times: ['1200', '1330', '1530'] },
+      {
+        theatre: 'Filmstaden Sergel',
+        times: ['1100', '1200', '1330', '1500'],
+      },
+      {
+        theatre: 'Biopalatset',
+        times: ['1200', '1330', '1400', '1500', '1530'],
+      },
+    ],
   },
   {
     Title: 'Bloodshot',
@@ -185,12 +218,8 @@ export const mockData = [
     imdbVotes: '47,250',
     imdbID: 'tt1634106',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'N/A',
-    Website: 'N/A',
-    Response: 'True',
-    feature: 'New',
+    screenings: [{ theatre: 'Royal Malmö', times: ['1300', '1330', '1400', '1500'] }],
   },
   {
     Title: 'The Call of the Wild',
@@ -217,12 +246,26 @@ export const mockData = [
     imdbVotes: '28,054',
     imdbID: 'tt7504726',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'N/A',
-    Website: 'N/A',
-    Response: 'True',
-    feature: 'New',
+    screenings: [
+      {
+        theatre: 'Filmstaden Sergel',
+        times: ['1200', '1300', '1400', '1500', '1530'],
+      },
+      {
+        theatre: 'Grand Stockholm',
+        times: ['1100', '1300', '1330', '1400', '1500'],
+      },
+      {
+        theatre: 'Filmstaden Bergakungen',
+        times: ['1100', '1300', '1330', '1500', '1530'],
+      },
+      {
+        theatre: 'Filmstaden Söder',
+        times: ['1200', '1300', '1330', '1500', '1530'],
+      },
+      { theatre: 'Filmstaden Storgatan', times: ['1200', '1300'] },
+    ],
   },
   {
     Title: 'Jumanji: The Next Level',
@@ -252,11 +295,18 @@ export const mockData = [
     imdbVotes: '168,263',
     imdbID: 'tt7975244',
     Type: 'movie',
-    DVD: '17 Mar 2020',
-    BoxOffice: 'N/A',
     Production: 'Hartbeat Productions',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      {
+        theatre: 'Royal Malmö',
+        times: ['1100', '1200', '1300', '1400', '1500'],
+      },
+      { theatre: 'Biopalatset', times: ['1100', '1400', '1500', '1530'] },
+      { theatre: 'Rigoletto', times: ['1100', '1200', '1300', '1400'] },
+      { theatre: 'Filmstaden Entré', times: ['1100', '1330', '1400'] },
+      { theatre: 'Filmstaden Storgatan', times: ['1100', '1200', '1530'] },
+      { theatre: 'Filmstaden Bergakungen', times: ['1200', '1300', '1400'] },
+    ],
   },
   {
     Title: 'The Invisible Man',
@@ -284,11 +334,16 @@ export const mockData = [
     imdbVotes: '129,231',
     imdbID: 'tt1051906',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'Indie Rights',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      { theatre: 'Grand Stockholm', times: ['1100', '1330', '1500'] },
+      { theatre: 'Rigoletto', times: ['1100', '1330', '1400', '1500'] },
+      {
+        theatre: 'Filmstaden Söder',
+        times: ['1100', '1200', '1400', '1500'],
+      },
+      { theatre: 'Biopalatset', times: ['1200', '1530'] },
+    ],
   },
   {
     Title: 'The Broken Hearts Gallery',
@@ -313,12 +368,29 @@ export const mockData = [
     imdbVotes: 'N/A',
     imdbID: 'tt2140571',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'N/A',
-    Website: 'N/A',
-    Response: 'True',
-    feature: 'Premiere',
+    screenings: [
+      { theatre: 'Filmstaden Söder', times: ['1100', '1330'] },
+      {
+        theatre: 'Rigoletto',
+        times: ['1100', '1200', '1400', '1500', '1530'],
+      },
+      {
+        theatre: 'Filmstaden Storgatan',
+        times: ['1200', '1400', '1500', '1530'],
+      },
+      {
+        theatre: 'Filmstaden Bergakungen',
+        times: ['1200', '1300', '1330', '1400', '1500'],
+      },
+      { theatre: 'Göta i Göteborg', times: ['1200', '1300'] },
+      {
+        theatre: 'Biopalatset',
+        times: ['1100', '1300', '1330', '1400', '1500', '1530'],
+      },
+      { theatre: 'Grand Stockholm', times: ['1330', '1400', '1500'] },
+      { theatre: 'Royal Malmö', times: ['1200', '1500'] },
+    ],
   },
   {
     Title: 'Jimmy Carter: Rock & Roll President',
@@ -342,12 +414,18 @@ export const mockData = [
     imdbVotes: '10',
     imdbID: 'tt11804758',
     Type: 'movie',
-    DVD: 'N/A',
-    BoxOffice: 'N/A',
     Production: 'N/A',
-    Website: 'N/A',
-    Response: 'True',
-    feature: 'Premiere',
+    screenings: [
+      {
+        theatre: 'Göta i Göteborg',
+        times: ['1200', '1300', '1400', '1500'],
+      },
+      { theatre: 'Rigoletto', times: ['1100', '1200'] },
+      {
+        theatre: 'Biopalatset',
+        times: ['1100', '1200', '1330', '1400', '1500'],
+      },
+    ],
   },
   {
     Title: 'Avengers: Endgame',
@@ -377,11 +455,11 @@ export const mockData = [
     imdbVotes: '742,118',
     imdbID: 'tt4154796',
     Type: 'movie',
-    DVD: '30 Jul 2019',
-    BoxOffice: 'N/A',
     Production: 'Marvel Studios',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      { theatre: 'Filmstaden Sergel', times: ['1100', '1200'] },
+      { theatre: 'Grand Stockholm', times: ['1100', '1500'] },
+    ],
   },
   {
     Title: 'The Lion King',
@@ -411,11 +489,18 @@ export const mockData = [
     imdbVotes: '198,790',
     imdbID: 'tt6105098',
     Type: 'movie',
-    DVD: '11 Oct 2019',
-    BoxOffice: 'N/A',
     Production: 'Walt Disney Pictures',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      {
+        theatre: 'Göta i Göteborg',
+        times: ['1200', '1300', '1330', '1530'],
+      },
+      { theatre: 'Filmstaden Bergakungen', times: ['1300', '1500'] },
+      {
+        theatre: 'Filmstaden Sergel',
+        times: ['1100', '1300', '1330', '1530'],
+      },
+    ],
   },
   {
     Title: 'Captain Marvel',
@@ -445,11 +530,16 @@ export const mockData = [
     imdbVotes: '419,105',
     imdbID: 'tt4154664',
     Type: 'movie',
-    DVD: '11 Jun 2019',
-    BoxOffice: 'N/A',
     Production: 'Marvel Studios',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      { theatre: 'Royal Malmö', times: ['1300', '1330', '1400', '1530'] },
+      { theatre: 'Rigoletto', times: ['1100', '1200', '1300', '1330'] },
+      { theatre: 'Filmstaden Entré', times: ['1200', '1330', '1400'] },
+      {
+        theatre: 'Filmstaden Storgatan',
+        times: ['1100', '1300', '1330', '1400', '1530'],
+      },
+    ],
   },
   {
     Title: 'Joker',
@@ -479,11 +569,23 @@ export const mockData = [
     imdbVotes: '844,981',
     imdbID: 'tt7286456',
     Type: 'movie',
-    DVD: '17 Dec 2019',
-    BoxOffice: 'N/A',
     Production: 'Warner Bros. Pictures',
-    Website: 'N/A',
-    Response: 'True',
+    screenings: [
+      { theatre: 'Royal Malmö', times: ['1200', '1300', '1400', '1530'] },
+      {
+        theatre: 'Filmstaden Bergakungen',
+        times: ['1100', '1300', '1330', '1400', '1500'],
+      },
+      {
+        theatre: 'Filmstaden Storgatan',
+        times: ['1100', '1300', '1330', '1530'],
+      },
+      {
+        theatre: 'Grand Stockholm',
+        times: ['1200', '1300', '1400', '1500', '1530'],
+      },
+      { theatre: 'Rigoletto', times: ['1100', '1400', '1500'] },
+    ],
   },
 ];
 
@@ -491,29 +593,61 @@ export const mockTheaters = [
   {
     name: 'Filmstaden Sergel',
     city: 'Stockholm',
+    street: 'Hötorget 3',
+    postalCode: '103 91',
   },
   {
     name: 'Filmstaden Söder',
     city: 'Stockholm',
+    street: 'Söderhallarna',
+    postalCode: '118 26',
   },
   {
     name: 'Grand Stockholm',
     city: 'Stockholm',
+    street: 'Sveavägen 45',
+    postalCode: '111 34',
   },
   {
     name: 'Rigoletto',
     city: 'Stockholm',
+    street: 'Kungsgatan 16',
+    postalCode: '111 35',
   },
   {
     name: 'Biopalatset',
     city: 'Göteborg',
+    street: 'Kungstorget 2',
+    postalCode: '411 16',
   },
   {
     name: 'Filmstaden Bergakungen',
     city: 'Göteborg',
+    street: 'Skånegatan 16 B',
+    postalCode: '402 22',
   },
   {
     name: 'Göta i Göteborg',
     city: 'Göteborg',
+    street: 'Götaplatsen 9',
+    postalCode: '411 34',
+  },
+  {
+    name: 'Filmstaden Entré',
+    city: 'Malmö',
+    street: 'Fredsgatan 12',
+    postalCode: '212 12',
+  },
+  {
+    name: 'Filmstaden Storgatan',
+    city: 'Malmö',
+    street: 'Storgatan 22',
+    postalCode: '411 34',
+  },
+  {
+    name: 'Royal Malmö',
+    city: 'Malmö',
+    street: 'Södra Tullgatan 4',
+    postalCode: '211 42',
   },
 ];

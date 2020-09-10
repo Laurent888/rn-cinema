@@ -58,7 +58,7 @@ const getTheme = (theme) => ({
   ...theme,
   colors: {
     ...theme.colors,
-    primary: '#3c27aa',
+    primary: '#d6182c',
     lightGrey: '#c5c5c5',
     mediumGrey: '#999',
   },
@@ -68,6 +68,6 @@ const getTheme = (theme) => ({
   fonts: configureFonts(fontConfig),
 });
 
-const theme = getTheme(DefaultTheme);
+const theme: ATheme = getTheme(DefaultTheme);
 
 export { getTheme, theme };

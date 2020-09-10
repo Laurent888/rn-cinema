@@ -19,7 +19,7 @@ const useStyle = (theme: ATheme) =>
   StyleSheet.create({
     container: {
       alignSelf: 'flex-start',
-      paddingVertical: 8,
+      paddingVertical: 5,
       paddingHorizontal: 10,
       backgroundColor: theme.colors.primary,
     },

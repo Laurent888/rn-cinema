@@ -9,6 +9,7 @@ configure(() => {
   require('./stories/FeatureBadge.stories.tsx');
   require('./stories/TextAccordeon.stories.tsx');
   require('./stories/TheatreItem.stories.tsx');
+  require('./stories/SearchBar.stories.tsx');
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters

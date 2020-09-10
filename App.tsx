@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppLoading } from 'expo';
 import { useFonts } from 'expo-font';
 
@@ -16,8 +17,10 @@ export default function App() {
   if (!fontsLoaded) return <AppLoading />;
 
   return (
-    <PaperProvider theme={theme}>
-      <AppNavigator />
-    </PaperProvider>
+    <SafeAreaProvider>
+      <PaperProvider theme={theme}>
+        <AppNavigator />
+      </PaperProvider>
+    </SafeAreaProvider>
   );
 }

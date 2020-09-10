@@ -8,4 +8,5 @@ export enum SCREENS {
   CINEMA = 'Cinema',
   NOW = 'Now',
   BOOKING = 'Booking',
+  SEARCH = 'Search',
 }

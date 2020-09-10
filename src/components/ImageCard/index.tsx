@@ -5,10 +5,12 @@ import { useTheme } from 'react-native-paper';
 
 import Text from '../Text';
 import { ATheme } from '@lib/theme/theme';
+import FeatureBadge from '@components/FeatureBadge';
 
 interface ImageCardProps {
   image: string;
   title: string;
+  feature?: string;
   onPress: (title: string) => void;
 }
 
@@ -41,11 +43,12 @@ const useStyles = (theme: ATheme) => {
     text: {
       fontSize: 20,
       color: '#fff',
+      paddingTop: 7,
     },
   });
 };
 
-const ImageCard = ({ image, title, feature, onPress }: ImageCardProps) => {
+const ImageCard = ({ image, title, feature = '', onPress }: ImageCardProps): JSX.Element => {
   const s = useStyles(useTheme());
 
   const handlePress = () => {
@@ -62,6 +65,7 @@ const ImageCard = ({ image, title, feature, onPress }: ImageCardProps) => {
           end={[0, 1]}
           colors={['transparent', 'rgba(0,0,0,.5)', 'rgba(0,0,0,1)']}
         >
+          {feature !== '' && <FeatureBadge text={feature} size="s" />}
           <Text text={title} style={[s.text]} />
         </LinearGradient>
       </View>

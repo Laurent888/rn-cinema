@@ -11,6 +11,7 @@ import MoviesTopBarNavigator from './BottomTab/MovieNavigator/MoviesTopBarNaviga
 
 import StorybookUIRoot from '../../storybook/index';
 import MovieNavigator from './BottomTab/MovieNavigator/MovieNavigator';
+import { theme } from '@lib/theme/theme';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -37,7 +38,7 @@ const BottomTabNavigator = () => {
         tabBarColor: '#fff',
       })}
       inactiveColor="#ccc"
-      activeColor="#3c27aa"
+      activeColor={theme.colors.primary}
     >
       <Tab.Screen name={SCREENS.MOVIE} component={MovieNavigator} />
       <Tab.Screen name={SCREENS.CINEMA} component={CinameNavigator} />

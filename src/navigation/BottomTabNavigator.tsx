@@ -3,11 +3,10 @@ import { StyleSheet } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons as McIcon } from '@expo/vector-icons';
 
-import CinameNavigator from './BottomTab/CinemaNavigator';
+import CinameNavigator from './BottomTab/CinemaNavigator/CinemaNavigator';
 import NowNavigator from './BottomTab/NowNavigator';
 import BookningNavigator from './BottomTab/BookningNavigator';
 import { SCREENS } from './routeTypes';
-import MoviesTopBarNavigator from './BottomTab/MovieNavigator/MoviesTopBarNavigator';
 
 import StorybookUIRoot from '../../storybook/index';
 import MovieNavigator from './BottomTab/MovieNavigator/MovieNavigator';

@@ -7,10 +7,10 @@ import Text from '@components/Text';
 
 import { MovieProps } from '@lib/types/types';
 import { useStyle } from './styles';
-import TheatreItem from './TheatreItem';
+import TheatreItem from '../TheatreItem';
 import { mockTheaters } from '../../../data/mockData';
 
-interface ListTheatresProps {
+interface ListTheatreScreeningsProps {
   movieData: MovieProps;
 }
 
@@ -30,7 +30,9 @@ const CityItem = React.memo(({ city, style, onPress }: CityItemProps) => (
 ));
 
 /***** MAIN COMPONENT ******/
-const ListTheatres: React.FC<ListTheatresProps> = ({ movieData }: ListTheatresProps) => {
+const ListTheatreScreenings: React.FC<ListTheatreScreeningsProps> = ({
+  movieData,
+}: ListTheatreScreeningsProps) => {
   const [selectedCity, setSelectedCity] = useState('');
   const s = useStyle(useTheme());
 
@@ -64,7 +66,7 @@ const ListTheatres: React.FC<ListTheatresProps> = ({ movieData }: ListTheatresPr
             {movieDataWithCity
               .filter((item) => item.details?.city === city)
               .map((t) => (
-                <TheatreItem key={t.theatre} name={t.theatre} times={t.times} style={s} />
+                <TheatreItem key={t.theatre} name={t.theatre} times={t.times} />
               ))}
           </View>
         </Fragment>
@@ -73,4 +75,4 @@ const ListTheatres: React.FC<ListTheatresProps> = ({ movieData }: ListTheatresPr
   );
 };
 
-export default ListTheatres;
+export default ListTheatreScreenings;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 
-import TheatreItem from '@components/MovieDetailScreenings/TheatreItem';
+import TheatreItem from '@components/TheatreItem';
 import { View } from 'react-native';
 
 storiesOf('Theatre Item', module)

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import dayjs from 'dayjs';
 
 import ScrollDates from './ScrollDates';
-import ListTheatres from './ListTheatres';
+import ListTheatresScreenings from './ListTheatresScreenings';
 import { MovieProps } from '@lib/types/types';
 
 interface MovieDetailScreeningsProps {
@@ -30,7 +30,7 @@ const MovieDetailScreenings = ({ movieData }: MovieDetailScreeningsProps): JSX.E
     <View>
       <ScrollDates dates={datesList} />
 
-      <ListTheatres movieData={movieData} />
+      <ListTheatresScreenings movieData={movieData} />
     </View>
   );
 };

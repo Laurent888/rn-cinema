@@ -28,8 +28,10 @@ const BottomTabNavigator = () => {
             iconName = 'chair-rolling';
           } else if (route.name === 'Now') {
             iconName = focused ? 'clock' : 'clock-outline';
-          } else if (route.name === 'Bookning') {
+          } else if (route.name === 'Booking') {
             iconName = focused ? 'ticket' : 'ticket-outline';
+          } else if (route.name === 'Storybook') {
+            iconName = 'draw';
           }
 
           // You can return any component that you like here!

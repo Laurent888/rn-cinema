@@ -7,50 +7,48 @@ import FeatureBadge from '@components/FeatureBadge';
 import useStyle from './styles';
 import { useTheme } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { getFormattedTime } from '@lib/utils/utils';
 
 interface TheatreItemProps {
   name: string;
   times?: string[];
-  onPress?: () => void;
+  onPress: (name: string) => void;
+  street: string | undefined;
+  postalCode: string | undefined;
+  city: string | undefined;
 }
 
-const CustomView = ({ onPress, children }) => {
-  if (onPress) {
-    return <TouchableOpacity>{children}</TouchableOpacity>;
-  } else {
-    return <View>{children}</View>;
-  }
-};
+const TheatreItem = memo(
+  ({ name, times, street = '', postalCode = '', city = '', onPress }: TheatreItemProps) => {
+    const s = useStyle(useTheme());
 
-const TheatreItem = memo(({ name, times, onPress }: TheatreItemProps) => {
-  const s = useStyle(useTheme());
+    return (
+      <View style={s.theatreItemContainer}>
+        <TouchableOpacity onPress={() => onPress(name)}>
+          <View style={[s.topContent, times && s.borderBottomWidth]}>
+            <Text style={s.title} text={name} />
 
-  return (
-    <View style={s.theatreItemContainer}>
-      <CustomView onPress={onPress}>
-        <View style={s.topContent}>
-          <Text style={s.title} text={name} />
+            <View style={s.address}>
+              <Text style={s.textAddress} text={street} />
+              <Text style={s.textAddress} text={`${postalCode} ${city}`} />
+            </View>
 
-          <View style={s.address}>
-            <Text style={s.textAddress} text="Kungstorget 2" />
-            <Text style={s.textAddress} text="402 22 Goteborg" />
+            <View>
+              <Text style={s.distance} text="40 km" />
+            </View>
           </View>
+        </TouchableOpacity>
 
-          <View>
-            <Text style={s.distance} text="40 km" />
+        {times && (
+          <View style={s.bottomContent}>
+            {times.map((time) => (
+              <FeatureBadge key={time} text={getFormattedTime(time)} size="m" marginRight={3} />
+            ))}
           </View>
-        </View>
-      </CustomView>
-
-      {times && (
-        <View style={s.bottomContent}>
-          {times.map((time) => (
-            <FeatureBadge key={time} text={time} size="m" marginRight={10} />
-          ))}
-        </View>
-      )}
-    </View>
-  );
-});
+        )}
+      </View>
+    );
+  },
+);
 
 export default TheatreItem;

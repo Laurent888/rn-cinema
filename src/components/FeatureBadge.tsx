@@ -13,6 +13,7 @@ interface BadgeProps {
   color?: string | null;
   marginLeft?: string | number | null;
   marginRight?: string | number | null;
+  marginBottom?: string | number | null;
 }
 
 const useStyle = (theme: ATheme) =>
@@ -24,14 +25,14 @@ const useStyle = (theme: ATheme) =>
       backgroundColor: theme.colors.primary,
     },
     containerM: {
-      paddingVertical: 10,
+      paddingVertical: 8,
       paddingHorizontal: 15,
     },
     text: {
       color: '#fff',
     },
     sizeM: {
-      fontSize: 20,
+      fontSize: 18,
     },
   });
 
@@ -41,6 +42,7 @@ const FeatureBadge = ({
   color = null,
   marginLeft = null,
   marginRight = null,
+  marginBottom = null,
 }: BadgeProps): JSX.Element => {
   const s = useStyle(useTheme());
 
@@ -52,6 +54,7 @@ const FeatureBadge = ({
         color && { backgroundColor: color },
         marginLeft && { marginLeft },
         marginRight && { marginRight },
+        marginBottom && { marginBottom },
       ]}
     >
       <Text style={[s.text, size === 'm' && s.sizeM]} text={text} />

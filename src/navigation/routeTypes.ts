@@ -3,6 +3,7 @@ export enum SCREENS {
   MOVIE = 'Movie',
   MOVIE_DETAIL = 'movieDetail',
   CINEMA = 'Cinema',
+  THEATRE_DETAIL = 'Theatre detail',
   NOW = 'Now',
   BOOKING = 'Booking',
   SEARCH = 'Search',

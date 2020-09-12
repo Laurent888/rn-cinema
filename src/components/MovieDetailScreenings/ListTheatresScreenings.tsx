@@ -1,12 +1,8 @@
 import React, { useState, Fragment } from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { useTheme } from 'react-native-paper';
-import { Entypo } from '@expo/vector-icons';
+import { View } from 'react-native';
 
-import Text from '@components/Text';
-
+import CityItem from '@components/CityItem';
 import { MovieProps } from '@lib/types/types';
-import { useStyle } from './styles';
 import TheatreItem from '../TheatreItem';
 import { mockTheaters } from '../../../data/mockData';
 
@@ -14,27 +10,11 @@ interface ListTheatreScreeningsProps {
   movieData: MovieProps;
 }
 
-interface CityItemProps {
-  city: string;
-  style: any;
-  onPress: (city: string) => void;
-}
-
-/******* COMPONENTS ********/
-
-const CityItem = React.memo(({ city, style, onPress }: CityItemProps) => (
-  <TouchableOpacity activeOpacity={0.8} style={style.cityRow} onPress={() => onPress(city)}>
-    <Text text={city} style={{ textTransform: 'uppercase' }} />
-    <Entypo name="chevron-thin-down" size={25} />
-  </TouchableOpacity>
-));
-
 /***** MAIN COMPONENT ******/
 const ListTheatreScreenings: React.FC<ListTheatreScreeningsProps> = ({
   movieData,
 }: ListTheatreScreeningsProps) => {
   const [selectedCity, setSelectedCity] = useState('');
-  const s = useStyle(useTheme());
 
   const movieDataWithCity = movieData.screenings.map((item) => {
     const theatreObject = mockTheaters.find((theater) => theater.name === item.theatre);
@@ -61,12 +41,19 @@ const ListTheatreScreenings: React.FC<ListTheatreScreeningsProps> = ({
     <View>
       {citiesUnique.map((city) => (
         <Fragment key={city}>
-          <CityItem city={city} onPress={selectCity} style={s} />
+          <CityItem city={city} onPress={selectCity} />
           <View style={{ display: selectedCity === city ? 'flex' : 'none' }}>
             {movieDataWithCity
               .filter((item) => item.details?.city === city)
               .map((t) => (
-                <TheatreItem key={t.theatre} name={t.theatre} times={t.times} />
+                <TheatreItem
+                  key={t.theatre}
+                  name={t.theatre}
+                  times={t.times}
+                  city={t.details?.city}
+                  street={t.details?.street}
+                  postalCode={t.details?.postalCode}
+                />
               ))}
           </View>
         </Fragment>

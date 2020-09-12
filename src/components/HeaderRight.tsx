@@ -12,10 +12,9 @@ const useStyle = (theme: ATheme) =>
       flexDirection: 'row',
       alignItems: 'center',
       paddingHorizontal: 10,
-      paddingBottom: 5,
     },
     iconContainer: {
-      padding: 10,
+      paddingRight: 5,
     },
     icon: {
       color: theme.colors.primary,
@@ -34,7 +33,7 @@ const HeaderRight = (): JSX.Element => {
     <View style={s.container}>
       <TouchableOpacity
         activeOpacity={0.7}
-        style={s.iconContainer}
+        style={[s.iconContainer, { paddingRight: 8 }]}
         onPress={() => navigateTo(SCREENS.SEARCH)}
       >
         <McIcon name="magnify" size={32} style={s.icon} />
@@ -42,7 +41,7 @@ const HeaderRight = (): JSX.Element => {
 
       <TouchableOpacity
         activeOpacity={0.7}
-        style={s.iconContainer}
+        style={[s.iconContainer, { paddingLeft: 8 }]}
         onPress={() => console.log('Test')}
       >
         <McIcon name="account-circle-outline" size={32} style={s.icon} />

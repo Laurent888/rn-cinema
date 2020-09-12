@@ -11,15 +11,19 @@ interface ScrollDatesProps {
 const useStyle = (theme: ATheme) => {
   return StyleSheet.create({
     dateBox: {
-      paddingHorizontal: 10,
-      paddingVertical: 15,
       backgroundColor: theme.colors.background,
       marginRight: 2,
       marginVertical: 1,
-      width: 90,
+      width: 80,
+      height: 70,
       alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: 10,
     },
-    text: { textAlign: 'center' },
+    text: {
+      textAlign: 'center',
+      flexWrap: 'wrap',
+    },
   });
 };
 
@@ -38,7 +42,7 @@ const ScrollDates = ({ dates }: ScrollDatesProps): JSX.Element => {
   const s = useStyle(useTheme());
 
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={false}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {dates.map((date) => (
         <DateBox key={date} text={date} style={s} />
       ))}

@@ -10,16 +10,15 @@ import MovieDetailScreenings from '@components/MovieDetailScreenings';
 
 const useStyle = (theme: ATheme) => StyleSheet.create({});
 
-const MovieDetailScreen = ({ route, navigation }) => {
+const MovieDetailScreen = ({ route, navigation }): JSX.Element => {
   const s = useStyle(useTheme());
 
   const { params } = route;
 
-  useEffect(() => {
-    navigation.setOptions({
-      headerTitle: params.title,
-    });
-  }, []);
+  navigation.setOptions({
+    headerBackTitleVisible: false,
+    headerTitle: params.title,
+  });
 
   const movieData = mockData.filter((item) => item.Title === params.title)[0];
 

@@ -16,7 +16,7 @@ const useStyle = (theme: ATheme) =>
     text: {
       lineHeight: 22,
       ...theme.fonts.light,
-      fontSize: 18,
+      fontSize: 16,
     },
     read: {
       color: theme.colors.primary,

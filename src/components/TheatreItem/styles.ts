@@ -29,12 +29,15 @@ const useStyle = (theme: ATheme) =>
       paddingBottom: 5,
       marginHorizontal: 20,
       borderBottomColor: theme.colors.lightGrey,
-      borderBottomWidth: 1,
     },
     bottomContent: {
       flexDirection: 'row',
       justifyContent: 'flex-end',
       paddingVertical: 20,
+      flexWrap: 'wrap',
+    },
+    borderBottomWidth: {
+      borderBottomWidth: 1,
     },
   });
 

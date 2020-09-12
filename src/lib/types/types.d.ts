@@ -1,6 +1,9 @@
 export interface TheaterProps {
   name: string;
   city: string;
+  street: string;
+  postalCode: string;
+  coordinates: [number, number];
 }
 
 interface ScreeningProp {

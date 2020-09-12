@@ -12,14 +12,16 @@ const Stack = createStackNavigator();
 
 const MovieNavigator = (): JSX.Element => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitleAlign: 'center',
-        headerTitle: () => <Logo />,
-        headerRight: () => <HeaderRight />,
-      }}
-    >
-      <Stack.Screen name="moviesList" component={MoviesTopBarNavigator} />
+    <Stack.Navigator>
+      <Stack.Screen
+        name="moviesList"
+        component={MoviesTopBarNavigator}
+        options={{
+          headerTitleAlign: 'center',
+          headerTitle: () => <Logo />,
+          headerRight: () => <HeaderRight />,
+        }}
+      />
       <Stack.Screen name={SCREENS.MOVIE_DETAIL} component={MovieDetailScreen} />
     </Stack.Navigator>
   );

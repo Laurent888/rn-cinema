@@ -1,22 +1,29 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { SCREENS } from '@navigation/routeTypes';
 import Logo from '@components/Logo';
 import HeaderRight from '@components/HeaderRight';
 import CinemaTopBarNavigator from './CinemaTopBarNavigator';
+import TheatreDetailScreen from '@screens/CinemaScreen/TheatreDetailScreen';
 
 const Stack = createStackNavigator();
 
+const options = {
+  headerTitleAlign: 'center',
+  headerTitle: () => <Logo />,
+  headerRight: () => <HeaderRight />,
+};
+
 const CinameNavigator = () => {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerTitleAlign: 'center',
-        headerTitle: () => <Logo />,
-        headerRight: () => <HeaderRight />,
-      }}
-    >
-      <Stack.Screen name="theatres" component={CinemaTopBarNavigator} />
+    <Stack.Navigator>
+      <Stack.Screen name="theatres" component={CinemaTopBarNavigator} options={options} />
+      <Stack.Screen
+        name={SCREENS.THEATRE_DETAIL}
+        component={TheatreDetailScreen}
+        options={{ headerBackTitleVisible: false }}
+      />
     </Stack.Navigator>
   );
 };

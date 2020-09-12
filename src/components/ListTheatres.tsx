@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useContext } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 
 import TheatreItem from './TheatreItem';
@@ -6,6 +6,8 @@ import { TheaterProps } from '@lib/types/types';
 import CityItem from './CityItem';
 import { useNavigation } from '@react-navigation/native';
 import { SCREENS } from '@navigation/routeTypes';
+import { getDistanceTheathreToUser } from '@lib/utils/utils';
+import { MovieContext } from '@context/moviesContext';
 
 interface ListTheatresProps {
   data: TheaterProps[];
@@ -13,6 +15,7 @@ interface ListTheatresProps {
 
 const ListTheatres = ({ data }: ListTheatresProps): JSX.Element => {
   const n = useNavigation();
+  const { location: userLocation } = useContext(MovieContext);
 
   const [selectedCity, setSelectedCity] = useState('');
 
@@ -48,6 +51,13 @@ const ListTheatres = ({ data }: ListTheatresProps): JSX.Element => {
                 street={item.street}
                 postalCode={item.postalCode}
                 onPress={navigateToTheatre}
+                distance={
+                  userLocation &&
+                  getDistanceTheathreToUser(userLocation, {
+                    lat: item.coordinates[0],
+                    lng: item.coordinates[1],
+                  }).distanceKM
+                }
               />
             ))}
           </View>

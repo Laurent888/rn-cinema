@@ -1,11 +1,13 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useContext } from 'react';
+import { View } from 'react-native';
 import ListMovies from '@components/ListMovies';
 
-import { mockData } from '../../../data/mockData';
+import { MovieContext } from 'context/moviesContext';
 
-const NewScreen = () => {
-  const newMoviesList = mockData.filter((item) => item.feature === 'New');
+const NewScreen = (): JSX.Element => {
+  const { movies } = useContext(MovieContext);
+
+  const newMoviesList = movies.filter((item) => item.feature === 'New');
 
   return (
     <View style={{ flex: 1 }}>
@@ -15,5 +17,3 @@ const NewScreen = () => {
 };
 
 export default NewScreen;
-
-const styles = StyleSheet.create({});

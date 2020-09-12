@@ -23,6 +23,7 @@ module.exports = function (api) {
             '@components': './src/components',
             '@lib': './src/lib',
             '@screens': './src/screens',
+            '@context': './src/context',
           },
         },
       ],

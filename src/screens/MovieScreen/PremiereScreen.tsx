@@ -1,10 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import ListMovies from '@components/ListMovies';
-import { mockData } from '../../../data/mockData';
+import React, { useContext } from 'react';
+import { View } from 'react-native';
 
-const PremiereScreen = () => {
-  const premiereMovies = mockData.filter((item) => item.feature === 'Premiere');
+import ListMovies from '@components/ListMovies';
+import { MovieContext } from 'context/moviesContext';
+
+const PremiereScreen = (): JSX.Element => {
+  const { movies } = useContext(MovieContext);
+
+  const premiereMovies = movies.filter((item) => item.feature === 'Premiere');
   return (
     <View style={{ flex: 1 }}>
       <ListMovies data={premiereMovies} />
@@ -13,5 +16,3 @@ const PremiereScreen = () => {
 };
 
 export default PremiereScreen;
-
-const styles = StyleSheet.create({});

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
 
 import ListTheatres from '@components/ListTheatres';
-import { mockTheaters } from '../../../data/mockData';
+import { MovieContext } from '@context/moviesContext';
 
 const AllTheatresScreen = (): JSX.Element => {
+  const { theatres } = useContext(MovieContext);
+
   return (
     <View style={{ flex: 1 }}>
-      <ListTheatres data={mockTheaters} />
+      <ListTheatres data={theatres} />
     </View>
   );
 };

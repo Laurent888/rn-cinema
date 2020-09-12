@@ -1,17 +1,21 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { MovieProps, TheaterProps } from '@lib/types/types';
+import * as Location from 'expo-location';
+import { getDistance } from 'geolib';
+import { ILocation, MovieProps, TheaterProps } from '@lib/types/types';
 import { mockTheaters, mockData } from '../../data/mockData';
 
 interface MovieContextProps {
   movies: MovieProps[];
   theatres: TheaterProps[];
   appLoading: boolean;
+  location: ILocation | null;
 }
 
 const MovieContext = createContext<MovieContextProps>({
   movies: [],
   theatres: [],
   appLoading: true,
+  location: null,
 });
 
 interface MovieProviderProps {
@@ -21,9 +25,25 @@ interface MovieProviderProps {
 const MovieProvider = ({ children }: MovieProviderProps) => {
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [theatres, setTheatres] = useState<TheaterProps[]>([]);
+  const [location, setLocation] = useState<ILocation | null>(null);
   const [isContextLoading, setIsContextLoading] = useState(true);
 
   useEffect(() => {
+    (async () => {
+      const { status } = await Location.requestPermissionsAsync();
+      if (status !== 'granted') {
+        return setLocation(null);
+      }
+
+      const location = await Location.getLastKnownPositionAsync({});
+
+      const userCoordinates = {
+        lat: location.coords.latitude,
+        lng: location.coords.longitude,
+      };
+      setLocation(userCoordinates);
+    })();
+
     setMovies(mockData);
     setTheatres(mockTheaters);
   }, []);
@@ -35,7 +55,7 @@ const MovieProvider = ({ children }: MovieProviderProps) => {
   }, [movies, theatres]);
 
   return (
-    <MovieContext.Provider value={{ movies, theatres, isContextLoading }}>
+    <MovieContext.Provider value={{ movies, theatres, location, isContextLoading }}>
       {children}
     </MovieContext.Provider>
   );

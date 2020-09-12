@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import { View } from 'react-native';
 
 import ScrollDates from '@components/MovieDetailScreenings/ScrollDates';
 import { getNextDates } from '@lib/utils/utils';
 import ListMovieByTheater from '@components/TheaterDetail/ListMovieByTheater';
 
-import { mockData } from '../../../data/mockData';
 import { MovieProps } from '@lib/types/types';
+import { MovieContext } from '@context/moviesContext';
 
 const TheatreDetailScreen = ({ route, navigation }): JSX.Element => {
   const {
     params: { theatre },
   } = route;
+
+  const { movies } = useContext(MovieContext);
 
   navigation.setOptions({
     headerTitle: theatre,
@@ -20,7 +22,7 @@ const TheatreDetailScreen = ({ route, navigation }): JSX.Element => {
   const [moviesByDate, setMoviesByDate] = useState<MovieProps[]>([]);
 
   const filterMoviesByTheatre = (nameTheatre: string) => {
-    return mockData.filter((item) => {
+    return movies.filter((item) => {
       const match = item.screenings.find((bItem) => bItem.theatre === nameTheatre);
       if (match) return item;
     });

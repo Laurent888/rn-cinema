@@ -17,7 +17,7 @@ const MainApp = () => {
     'Roboto-bold': require('./assets/fonts/RobotoCondensed-Bold.ttf'),
   });
 
-  if (!fontsLoaded && appLoading) return <AppLoading />;
+  if (!fontsLoaded || appLoading) return <AppLoading />;
 
   return (
     <PaperProvider theme={theme}>

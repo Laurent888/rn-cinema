@@ -16,10 +16,19 @@ interface TheatreItemProps {
   street: string | undefined;
   postalCode: string | undefined;
   city: string | undefined;
+  distance?: string | number | undefined | null;
 }
 
 const TheatreItem = memo(
-  ({ name, times, street = '', postalCode = '', city = '', onPress }: TheatreItemProps) => {
+  ({
+    name,
+    times,
+    street = '',
+    postalCode = '',
+    city = '',
+    distance,
+    onPress,
+  }: TheatreItemProps) => {
     const s = useStyle(useTheme());
 
     return (
@@ -34,7 +43,7 @@ const TheatreItem = memo(
             </View>
 
             <View>
-              <Text style={s.distance} text="40 km" />
+              <Text style={s.distance} text={distance ? `${distance} km` : '-'} />
             </View>
           </View>
         </TouchableOpacity>

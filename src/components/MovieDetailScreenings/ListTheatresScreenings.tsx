@@ -1,10 +1,12 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useContext } from 'react';
 import { View } from 'react-native';
 
-import CityItem from '@components/CityItem';
 import { MovieProps } from '@lib/types/types';
+import { MovieContext } from '@context/moviesContext';
+import { getDistanceTheathreToUser } from '@lib/utils/utils';
+
+import CityItem from '@components/CityItem';
 import TheatreItem from '../TheatreItem';
-import { mockTheaters } from '../../../data/mockData';
 
 interface ListTheatreScreeningsProps {
   movieData: MovieProps;
@@ -15,18 +17,21 @@ const ListTheatreScreenings: React.FC<ListTheatreScreeningsProps> = ({
   movieData,
 }: ListTheatreScreeningsProps) => {
   const [selectedCity, setSelectedCity] = useState('');
+  const { location: userLocation, theatres } = useContext(MovieContext);
 
   const movieDataWithCity = movieData.screenings.map((item) => {
-    const theatreObject = mockTheaters.find((theater) => theater.name === item.theatre);
+    const theatreObject = theatres.find((theater) => theater.name === item.theatre);
 
     return {
       ...item,
-      details: theatreObject,
+      details: theatreObject || null,
     };
   });
 
   const citiesUnique = [
-    ...Array.from(new Set(movieDataWithCity.map((item) => item.details.city))),
+    ...Array.from(
+      new Set(movieDataWithCity.map((item) => (item.details ? item.details.city : null))),
+    ),
   ].sort((a, b) => a - b);
 
   const selectCity = (city: string) => {
@@ -53,6 +58,14 @@ const ListTheatreScreenings: React.FC<ListTheatreScreeningsProps> = ({
                   city={t.details?.city}
                   street={t.details?.street}
                   postalCode={t.details?.postalCode}
+                  distance={
+                    userLocation &&
+                    t.details &&
+                    getDistanceTheathreToUser(userLocation, {
+                      lat: t.details.coordinates[0],
+                      lng: t.details.coordinates[1],
+                    }).distanceKM
+                  }
                 />
               ))}
           </View>

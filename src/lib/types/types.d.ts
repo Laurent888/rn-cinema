@@ -36,3 +36,8 @@ export interface MovieProps {
   screenings: ScreeningProp[];
   feature: string;
 }
+
+export interface ILocation {
+  lat: number | string;
+  lng: number | string;
+}

@@ -16,6 +16,7 @@ const AppNavigator = () => {
       <Stack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
         <Stack.Screen name={SCREENS.ROOT} component={BottomTabNavigator} />
         <Stack.Screen name="Search" component={SearchScreen} />
+        {/* <Stack.Screen name="SignInSignUp" component={L} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

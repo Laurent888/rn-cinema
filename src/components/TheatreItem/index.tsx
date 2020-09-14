@@ -17,6 +17,7 @@ interface TheatreItemProps {
   postalCode: string | undefined;
   city: string | undefined;
   distance?: string | number | undefined | null;
+  noDecoration?: boolean;
 }
 
 interface CustomViewProps {
@@ -42,19 +43,14 @@ const TheatreItem = memo(
     city = '',
     distance,
     onPress,
+    noDecoration,
   }: TheatreItemProps) => {
     const s = useStyle(useTheme());
 
     return (
-      <View style={[s.theatreItemContainer, onPress === undefined && s.noButton]}>
+      <View style={[s.theatreItemContainer, noDecoration && s.noButton]}>
         <CustomView name={name} onPress={onPress}>
-          <View
-            style={[
-              s.topContent,
-              times && s.borderBottomWidth,
-              onPress === undefined && s.noButton,
-            ]}
-          >
+          <View style={[s.topContent, times && s.borderBottomWidth, noDecoration && s.noButton]}>
             <Text style={s.title} text={name} />
 
             <View style={s.address}>

@@ -68,5 +68,3 @@ const ListTheatres = ({ data }: ListTheatresProps): JSX.Element => {
 };
 
 export default ListTheatres;
-
-const styles = StyleSheet.create({});

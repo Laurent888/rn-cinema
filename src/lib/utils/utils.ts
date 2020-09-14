@@ -1,3 +1,4 @@
+import { MovieProps } from '@lib/types/types';
 import dayjs from 'dayjs';
 import { getDistance } from 'geolib';
 import { GeolibInputCoordinates } from 'geolib/es/types';

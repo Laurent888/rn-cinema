@@ -47,7 +47,7 @@ const TextInput = ({
   style,
   secureTextEntry = false,
   onBlur,
-}: CustonInputProps) => {
+}: CustonInputProps): JSX.Element => {
   const s = useStyle(useTheme());
 
   return (

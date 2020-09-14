@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { RouteProp } from '@react-navigation/native';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Dimensions } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import MapView, { Marker } from 'react-native-maps';
 
@@ -8,6 +8,12 @@ import TheatreItem from '@components/TheatreItem';
 import { MovieContext } from '@context/moviesContext';
 import { ATheme } from '@lib/theme/theme';
 import { getDistanceTheathreToUser } from '@lib/utils/utils';
+
+const { width, height } = Dimensions.get('window');
+
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.02;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 const useStyle = (theme: ATheme) =>
   StyleSheet.create({
@@ -46,10 +52,18 @@ interface UsefulInfoProps {
   route: RouteProp<any, any>;
 }
 
+interface infosState {
+  city: string;
+  coordinates: number[];
+  name: string;
+  postalCode: string;
+  street: string;
+}
+
 const UsefulInformationScreen = ({ route }: UsefulInfoProps): JSX.Element => {
   const s = useStyle(useTheme());
 
-  const [infos, setInfos] = useState(null);
+  const [infos, setInfos] = useState<infosState | null>(null);
 
   const {
     params: { theatre },
@@ -60,7 +74,8 @@ const UsefulInformationScreen = ({ route }: UsefulInfoProps): JSX.Element => {
   useEffect(() => {
     const getInfo = async () => {
       const foundTheatre = theatres.find((item) => item.name === theatre);
-      setInfos(foundTheatre);
+
+      if (foundTheatre) setInfos(foundTheatre);
     };
     getInfo();
   }, []);
@@ -69,8 +84,8 @@ const UsefulInformationScreen = ({ route }: UsefulInfoProps): JSX.Element => {
     return {
       latitude: infos.coordinates[0],
       longitude: infos.coordinates[1],
-      latitudeDelta: 0.02,
-      longitudeDelta: 0.01,
+      latitudeDelta: LATITUDE_DELTA,
+      longitudeDelta: LONGITUDE_DELTA,
     };
   };
 
@@ -100,6 +115,7 @@ const UsefulInformationScreen = ({ route }: UsefulInfoProps): JSX.Element => {
                 lng: infos.coordinates[1],
               }).distanceKM
             }
+            noDecoration
           />
         )}
       </View>

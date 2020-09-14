@@ -45,7 +45,9 @@ const BottomTabNavigator = () => {
       <Tab.Screen name={SCREENS.CINEMA} component={CinameNavigator} />
       <Tab.Screen name={SCREENS.NOW} component={NowNavigator} />
       <Tab.Screen name={SCREENS.BOOKING} component={BookningNavigator} />
-      <Tab.Screen name="Storybook" component={StorybookUIRoot} />
+
+      {/* DEV MODE: Storybook */}
+      {/* <Tab.Screen name="Storybook" component={StorybookUIRoot} /> */}
     </Tab.Navigator>
   );
 };

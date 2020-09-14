@@ -2,14 +2,24 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import NewsMovies from '@screens/MovieScreen/NewsMovies';
+import NowScreen from '@screens/NowScreen/NowScreen';
+import HeaderRight from '@components/HeaderRight';
+import Logo from '@components/Logo';
 
 const Stack = createStackNavigator();
 
 const NowNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="newMovies" component={NewsMovies} />
+      <Stack.Screen
+        name="nowMovies"
+        component={NowScreen}
+        options={{
+          headerTitleAlign: 'center',
+          headerTitle: () => <Logo />,
+          headerRight: () => <HeaderRight />,
+        }}
+      />
     </Stack.Navigator>
   );
 };

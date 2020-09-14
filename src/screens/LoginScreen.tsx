@@ -1,14 +1,8 @@
+import { LoginForm } from '@components/Forms';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
 const LoginScreen = () => {
-  return (
-    <View>
-      <Text>Login screen</Text>
-    </View>
-  );
+  return <LoginForm />;
 };
 
 export default LoginScreen;
-
-const styles = StyleSheet.create({});

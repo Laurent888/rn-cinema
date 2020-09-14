@@ -7,6 +7,7 @@ export enum SCREENS {
   NOW = 'Now',
   BOOKING = 'Booking',
   SEARCH = 'Search',
+  SIGNINUP = 'SignInSignUp',
 
   // Movie Tab
   NEW = 'New',

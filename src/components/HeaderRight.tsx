@@ -42,7 +42,7 @@ const HeaderRight = (): JSX.Element => {
       <TouchableOpacity
         activeOpacity={0.7}
         style={[s.iconContainer, { paddingLeft: 8 }]}
-        onPress={() => console.log('Test')}
+        onPress={() => navigateTo(SCREENS.SIGNINUP)}
       >
         <McIcon name="account-circle-outline" size={32} style={s.icon} />
       </TouchableOpacity>

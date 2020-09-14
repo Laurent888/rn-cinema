@@ -1,14 +1,8 @@
+import { RegisterForm } from '@components/Forms';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
 const RegisterScreen = () => {
-  return (
-    <View>
-      <Text>Register screen</Text>
-    </View>
-  );
+  return <RegisterForm />;
 };
 
 export default RegisterScreen;
-
-const styles = StyleSheet.create({});

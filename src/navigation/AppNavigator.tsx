@@ -4,9 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
 import SearchScreen from '@screens/SearchScreen';
-import MovieNavigator from './BottomTab/MovieNavigator/MovieNavigator';
 import BottomTabNavigator from './BottomTabNavigator';
 import { SCREENS } from './routeTypes';
+import LoginStack from './LoginStack';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,7 @@ const AppNavigator = () => {
       <Stack.Navigator mode="modal" screenOptions={{ headerShown: false }}>
         <Stack.Screen name={SCREENS.ROOT} component={BottomTabNavigator} />
         <Stack.Screen name="Search" component={SearchScreen} />
-        {/* <Stack.Screen name="SignInSignUp" component={L} /> */}
+        <Stack.Screen name={SCREENS.SIGNINUP} component={LoginStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

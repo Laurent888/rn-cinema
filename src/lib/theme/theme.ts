@@ -10,6 +10,7 @@ declare global {
     interface ThemeColors {
       lightGrey: string;
       mediumGrey: string;
+      secondary: string;
     }
 
     interface ThemeFonts {
@@ -59,6 +60,7 @@ const getTheme = (theme) => ({
   colors: {
     ...theme.colors,
     primary: '#d6182c',
+    secondary: '#657899',
     lightGrey: '#c5c5c5',
     mediumGrey: '#999',
   },

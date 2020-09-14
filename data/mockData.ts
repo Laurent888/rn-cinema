@@ -676,3 +676,66 @@ export const mockTheaters = [
     coordinates: [55.60159, 13.000805],
   },
 ];
+
+export const mockUsers = [
+  {
+    id: '5f5e3ff420cc582a9b2b41e6',
+    name: 'Alexandra Cantu',
+    email: 'alexandracantu@aquamate.com',
+    password: 'Efland',
+  },
+  {
+    id: '5f5e3ff4695a17f2df72d532',
+    name: 'Kenya Wheeler',
+    email: 'kenyawheeler@aquamate.com',
+    password: 'Delco',
+  },
+  {
+    id: '5f5e3ff4ce82702d1d7d219c',
+    name: 'Rojas Oneal',
+    email: 'rojasoneal@aquamate.com',
+    password: 'Boykin',
+  },
+  {
+    id: '5f5e3ff42658414d10b819d6',
+    name: 'Kennedy Herrera',
+    email: 'kennedyherrera@aquamate.com',
+    password: 'Alden',
+  },
+  {
+    id: '5f5e3ff45d9d5ac4f324c58e',
+    name: 'Knapp Newman',
+    email: 'knappnewman@aquamate.com',
+    password: 'Manitou',
+  },
+  {
+    id: '5f5e3ff44597f8227af905be',
+    name: 'Patrick Wooten',
+    email: 'patrickwooten@aquamate.com',
+    password: 'Hardyville',
+  },
+  {
+    id: '5f5e3ff4516a5248db5448d1',
+    name: 'May Shepard',
+    email: 'mayshepard@aquamate.com',
+    password: 'Stevens',
+  },
+  {
+    id: '5f5e3ff4ddfaf1d138098fc9',
+    name: 'Mays Snyder',
+    email: 'mayssnyder@aquamate.com',
+    password: 'Eggertsville',
+  },
+  {
+    id: '5f5e3ff4c5b7f35f0582cbbc',
+    name: 'Stephanie Noel',
+    email: 'stephanienoel@aquamate.com',
+    password: 'Ebro',
+  },
+  {
+    id: '5f5e3ff448ecf00624140094',
+    name: 'Marcella Christian',
+    email: 'marcellachristian@aquamate.com',
+    password: 'Dellview',
+  },
+];

@@ -7,6 +7,7 @@ import { useFonts } from 'expo-font';
 import AppNavigator from './src/navigation/AppNavigator';
 import { theme } from './src/lib/theme/theme';
 import { MovieContext, MovieProvider } from 'context/moviesContext';
+import { DatesProvider } from '@context/datesContext';
 
 const MainApp = () => {
   const { appLoading } = useContext(MovieContext);
@@ -30,7 +31,9 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <MovieProvider>
-        <MainApp />
+        <DatesProvider>
+          <MainApp />
+        </DatesProvider>
       </MovieProvider>
     </SafeAreaProvider>
   );

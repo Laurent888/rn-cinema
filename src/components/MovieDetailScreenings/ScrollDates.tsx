@@ -1,8 +1,9 @@
-import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import React, { useContext, useEffect } from 'react';
+import { StyleSheet, View, ScrollView, TouchableOpacity } from 'react-native';
 import Text from '@components/Text';
 import { ATheme } from '@lib/theme/theme';
 import { useTheme } from 'react-native-paper';
+import { DatesContext } from '@context/datesContext';
 
 interface ScrollDatesProps {
   dates: any[];
@@ -20,9 +21,16 @@ const useStyle = (theme: ATheme) => {
       justifyContent: 'center',
       paddingHorizontal: 10,
     },
+    dateBoxSelected: {
+      borderBottomColor: theme.colors.primary,
+      borderBottomWidth: 2,
+    },
     text: {
       textAlign: 'center',
       flexWrap: 'wrap',
+    },
+    dateSelected: {
+      color: theme.colors.primary,
     },
   });
 };
@@ -30,21 +38,36 @@ const useStyle = (theme: ATheme) => {
 interface DateBoxProps {
   text: string;
   style: any;
+  onPress: (date: string) => void;
+  selected?: boolean;
 }
 
-const DateBox = ({ text, style }: DateBoxProps) => (
-  <View style={style.dateBox}>
-    <Text text={text} style={style.text} />
-  </View>
+const DateBox = ({ text, style, onPress, selected }: DateBoxProps) => (
+  <TouchableOpacity onPress={() => onPress(text)}>
+    <View style={[style.dateBox, selected && style.dateBoxSelected]}>
+      <Text text={text} style={[style.text, selected && style.dateSelected]} />
+    </View>
+  </TouchableOpacity>
 );
 
 const ScrollDates = ({ dates }: ScrollDatesProps): JSX.Element => {
   const s = useStyle(useTheme());
+  const { dateMovie, handleSetDate } = useContext(DatesContext);
+
+  useEffect(() => {
+    handleSetDate(dates[0]);
+  }, []);
 
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {dates.map((date) => (
-        <DateBox key={date} text={date} style={s} />
+        <DateBox
+          key={date}
+          text={date}
+          style={s}
+          onPress={handleSetDate}
+          selected={dateMovie === date}
+        />
       ))}
     </ScrollView>
   );

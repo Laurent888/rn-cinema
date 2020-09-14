@@ -6,6 +6,7 @@ import Logo from '@components/Logo';
 import HeaderRight from '@components/HeaderRight';
 import CinemaTopBarNavigator from './CinemaTopBarNavigator';
 import TheatreDetailScreen from '@screens/CinemaScreen/TheatreDetailScreen';
+import UsefulInformationScreen from '@screens/CinemaScreen/UsefulInformationScreen';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ const CinameNavigator = () => {
         component={TheatreDetailScreen}
         options={{ headerBackTitleVisible: false }}
       />
+      <Stack.Screen name={SCREENS.USEFUL_INFO} component={UsefulInformationScreen} />
     </Stack.Navigator>
   );
 };

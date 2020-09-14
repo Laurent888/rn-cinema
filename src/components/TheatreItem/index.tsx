@@ -12,12 +12,26 @@ import { getFormattedTime } from '@lib/utils/utils';
 interface TheatreItemProps {
   name: string;
   times?: string[];
-  onPress: (name: string) => void;
+  onPress?: (name: string) => void;
   street: string | undefined;
   postalCode: string | undefined;
   city: string | undefined;
   distance?: string | number | undefined | null;
 }
+
+interface CustomViewProps {
+  onPress: ((name: string) => void) | undefined;
+  name: string;
+  children: React.ReactNode;
+}
+
+const CustomView = ({ onPress, name, children }: CustomViewProps) => {
+  if (onPress) {
+    return <TouchableOpacity onPress={() => onPress(name)}>{children}</TouchableOpacity>;
+  } else {
+    return <View>{children}</View>;
+  }
+};
 
 const TheatreItem = memo(
   ({
@@ -32,9 +46,15 @@ const TheatreItem = memo(
     const s = useStyle(useTheme());
 
     return (
-      <View style={s.theatreItemContainer}>
-        <TouchableOpacity onPress={() => onPress(name)}>
-          <View style={[s.topContent, times && s.borderBottomWidth]}>
+      <View style={[s.theatreItemContainer, onPress === undefined && s.noButton]}>
+        <CustomView name={name} onPress={onPress}>
+          <View
+            style={[
+              s.topContent,
+              times && s.borderBottomWidth,
+              onPress === undefined && s.noButton,
+            ]}
+          >
             <Text style={s.title} text={name} />
 
             <View style={s.address}>
@@ -46,7 +66,7 @@ const TheatreItem = memo(
               <Text style={s.distance} text={distance ? `${distance} km` : '-'} />
             </View>
           </View>
-        </TouchableOpacity>
+        </CustomView>
 
         {times && (
           <View style={s.bottomContent}>

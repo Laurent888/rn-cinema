@@ -10,6 +10,10 @@ const useStyle = (theme: ATheme) =>
       borderBottomColor: theme.colors.lightGrey,
       borderBottomWidth: 1,
     },
+    noButton: {
+      borderBottomWidth: 0,
+      marginHorizontal: 0,
+    },
     address: {
       paddingTop: 7,
     },

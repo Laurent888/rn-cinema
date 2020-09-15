@@ -26,7 +26,7 @@ const MovieProvider = ({ children }: MovieProviderProps) => {
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [theatres, setTheatres] = useState<TheaterProps[]>([]);
   const [location, setLocation] = useState<ILocation | null>(null);
-  const [isContextLoading, setIsContextLoading] = useState(true);
+  const [appLoading, setAppLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -50,12 +50,12 @@ const MovieProvider = ({ children }: MovieProviderProps) => {
 
   useEffect(() => {
     if (movies.length !== 0 && theatres.length !== 0) {
-      setIsContextLoading(false);
+      setAppLoading(false);
     }
   }, [movies, theatres]);
 
   return (
-    <MovieContext.Provider value={{ movies, theatres, location, isContextLoading }}>
+    <MovieContext.Provider value={{ movies, theatres, location, appLoading }}>
       {children}
     </MovieContext.Provider>
   );

@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppLoading } from 'expo';
 import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
 
 import AppNavigator from './src/navigation/AppNavigator';
 import { theme } from './src/lib/theme/theme';
@@ -20,6 +21,15 @@ const MainApp = () => {
 
   if (!fontsLoaded || appLoading) return <AppLoading />;
 
+  const hideSplashScreen = async () => {
+    await SplashScreen.hideAsync();
+  };
+
+  if (!appLoading) {
+    console.log('APP LOADING', appLoading);
+    hideSplashScreen();
+  }
+
   return (
     <PaperProvider theme={theme}>
       <AppNavigator />
@@ -28,6 +38,14 @@ const MainApp = () => {
 };
 
 export default function App() {
+  useEffect(() => {
+    const asyncSpashScreen = async () => {
+      await SplashScreen.preventAutoHideAsync();
+    };
+
+    asyncSpashScreen();
+  }, []);
+
   return (
     <SafeAreaProvider>
       <MovieProvider>

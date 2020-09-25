@@ -7,6 +7,7 @@ import SearchScreen from '@screens/SearchScreen';
 import BottomTabNavigator from './BottomTabNavigator';
 import { SCREENS } from './routeTypes';
 import LoginStack from './LoginStack';
+import AccountNavigator from './AccountNavigator';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ const AppNavigator = () => {
         <Stack.Screen name={SCREENS.ROOT} component={BottomTabNavigator} />
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name={SCREENS.SIGNINUP} component={LoginStack} />
+        <Stack.Screen name="accountNavigator" component={AccountNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

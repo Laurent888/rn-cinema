@@ -12,6 +12,7 @@ configure(() => {
   require('./stories/SearchBar.stories.tsx');
   require('./stories/MovieCard.stories.tsx');
   require('./stories/TextInput.stories.tsx');
+  require('./stories/ButtonLinkWide.stories.tsx');
 }, module);
 
 // Refer to https://github.com/storybookjs/storybook/tree/master/app/react-native#start-command-parameters

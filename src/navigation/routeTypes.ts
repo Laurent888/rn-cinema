@@ -9,6 +9,8 @@ export enum SCREENS {
   SEARCH = 'Search',
   SIGNINUP = 'SignInSignUp',
   USEFUL_INFO = 'Useful Informations',
+  MY_ACCOUNT = 'My Account',
+  MY_INFORMATIONS = 'My Informations',
 
   // Movie Tab
   NEW = 'New',

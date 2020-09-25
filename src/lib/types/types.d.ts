@@ -41,3 +41,8 @@ export interface ILocation {
   lat: number | string;
   lng: number | string;
 }
+
+export interface CustomModalProps {
+  isVisible: boolean;
+  onClose: () => void;
+}

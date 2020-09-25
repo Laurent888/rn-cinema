@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
 import { ATheme } from '@lib/theme/theme';
 import Text from '@components/Text';
 import { Button } from 'react-native-paper';
+import ModalChangePassword from '@components/ModalChangePassword';
+import ModalChangeEmail from '@components/ModalChangeEmail';
 
 const useStyle = (theme: ATheme) =>
   StyleSheet.create({
@@ -29,6 +31,9 @@ const useStyle = (theme: ATheme) =>
   });
 
 const MyInformations: React.FC = () => {
+  const [isPasswordModalVisible, setIsPasswordModalVisible] = useState(false);
+  const [isEmailModalVisible, setIsEmailModalVisible] = useState(false);
+
   const s = useStyle(useTheme());
 
   return (
@@ -38,8 +43,14 @@ const MyInformations: React.FC = () => {
           <Text text="Credentials" style={s.title} />
 
           <View>
-            <Button mode="outlined">Modify Email</Button>
-            <Button mode="outlined" style={s.marginTop}>
+            <Button mode="outlined" onPress={() => setIsEmailModalVisible(true)}>
+              Modify Email
+            </Button>
+            <Button
+              mode="outlined"
+              style={s.marginTop}
+              onPress={() => setIsPasswordModalVisible(true)}
+            >
               Modify Password
             </Button>
           </View>
@@ -67,6 +78,18 @@ const MyInformations: React.FC = () => {
           </Button>
         </View>
       </View>
+
+      <ModalChangePassword
+        isVisible={isPasswordModalVisible}
+        onClose={() => {
+          setIsPasswordModalVisible(false);
+        }}
+      />
+
+      <ModalChangeEmail
+        isVisible={isEmailModalVisible}
+        onClose={() => setIsEmailModalVisible(false)}
+      />
     </ScrollView>
   );
 };

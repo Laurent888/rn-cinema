@@ -3,6 +3,7 @@ import * as Location from 'expo-location';
 import { getDistance } from 'geolib';
 import { ILocation, MovieProps, TheaterProps } from '@lib/types/types';
 import { mockTheaters, mockData } from '../../data/mockData';
+import { captureErrors } from '@lib/utils/log';
 
 interface MovieContextProps {
   movies: MovieProps[];
@@ -30,18 +31,22 @@ const MovieProvider = ({ children }: MovieProviderProps) => {
 
   useEffect(() => {
     (async () => {
-      const { status } = await Location.requestPermissionsAsync();
-      if (status !== 'granted') {
-        return setLocation(null);
+      try {
+        const { status } = await Location.requestPermissionsAsync();
+        if (status !== 'granted') {
+          return setLocation(null);
+        }
+
+        const res = await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
+
+        const userCoordinates = {
+          lat: res.coords.latitude,
+          lng: res.coords.longitude,
+        };
+        setLocation(userCoordinates);
+      } catch (error) {
+        captureErrors('Movie context | Location :', error);
       }
-
-      const location = await Location.getLastKnownPositionAsync({});
-
-      const userCoordinates = {
-        lat: location.coords.latitude,
-        lng: location.coords.longitude,
-      };
-      setLocation(userCoordinates);
     })();
 
     setMovies(mockData);

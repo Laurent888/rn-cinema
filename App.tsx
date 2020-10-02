@@ -1,17 +1,34 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppLoading } from 'expo';
 import { useFonts } from 'expo-font';
+import NetInfo from '@react-native-community/netinfo';
 import * as SplashScreen from 'expo-splash-screen';
 
 import AppNavigator from './src/navigation/AppNavigator';
 import { theme } from './src/lib/theme/theme';
 import { MovieContext, MovieProvider } from 'context/moviesContext';
 import { DatesProvider } from '@context/datesContext';
+import CustomSnackbar from '@components/CustomSnackbar';
 
 const MainApp = () => {
   const { appLoading } = useContext(MovieContext);
+  const [snackbarInfo, setSnackbarInfo] = useState({
+    visible: false,
+    message: '',
+  });
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((networkState) => {
+      console.log('Connection type ', networkState.type);
+      console.log('Is connected ? ', networkState.isConnected);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const [fontsLoaded] = useFonts({
     'Roboto-light': require('./assets/fonts/RobotoCondensed-Light.ttf'),
@@ -33,6 +50,12 @@ const MainApp = () => {
   return (
     <PaperProvider theme={theme}>
       <AppNavigator />
+
+      <CustomSnackbar
+        message={snackbarInfo.message}
+        visible={snackbarInfo.visible}
+        onDismissSnackBar={() => setSnackbarInfo({ message: '', visible: false })}
+      />
     </PaperProvider>
   );
 };
